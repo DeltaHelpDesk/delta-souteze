@@ -31,7 +31,6 @@ export const actions = {
 
 export const getters = {
   getDataByPrefix: (state) => (prefix) => {
-    console.log(prefix);
     return state.data[prefix];
   },
 };
