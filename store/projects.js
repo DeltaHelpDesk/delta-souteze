@@ -20,3 +20,9 @@ export const actions = {
     }
   },
 };
+
+export const getters = {
+  getDataByPrefix: (state) => (prefix) => {
+    return state.data[prefix];
+  },
+};
