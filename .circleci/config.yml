@@ -51,7 +51,7 @@ jobs:
         - restore_cache:
             keys:
               - v1-dist-{{ .Environment.CIRCLE_SHA1 }}
-        - run: yarn global add firebase-tools
+        - run: yarn global add firebase-tools --prefix /usr/local
         - run: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
