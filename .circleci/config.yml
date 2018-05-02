@@ -35,10 +35,24 @@ jobs:
 
       # run lint!
       - run: yarn lint
-      # run generate
+
   deploy:
-    develop:
-      branch: develop
-      commands:
-        - yarn generate
-        - ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+      docker:
+        - image: circleci/node:7.10
+      working_directory: ~/repo
+      steps:
+        - run: yarn generate
+        - run: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: develop
+
