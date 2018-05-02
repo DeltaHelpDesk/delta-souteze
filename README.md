@@ -2,6 +2,19 @@
 
 > Nuxt.js project
 
+## Issue flow
+
+``` text
+Create feature/<isuue> branch and commit changes there. 
+In commit message you can use keywords (e.g. issue #<issue>, resolve #<issue>, fix #<issue>)
+Once you are finished open pull request from this branch to develop
+```
+
+## Deploy
+``` text
+All commits in develop branch are automatically deployed to https://delta-souteze.firebaseapp.com/
+```
+
 ## Build Setup
 
 ``` bash
