@@ -35,14 +35,24 @@ jobs:
 
       # run lint!
       - run: yarn lint
+      # generate static files
+      - run: yarn generate
+
+      - save_cache:
+          paths:
+            - dist
+          key: v1-dist-{{ .Environment.CIRCLE_SHA1 }}
 
   deploy:
       docker:
         - image: circleci/node:8
       working_directory: ~/repo
       steps:
-        - run: yarn generate
-        - run: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+        - restore_cache:
+            keys:
+              - v1-dist-{{ .Environment.CIRCLE_SHA1 }}
+        - run: yarn global add firebase-tools
+        - run: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
   version: 2
