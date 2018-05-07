@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="row">
     <Project v-for="(project, index) in projects" :authors="project.authors" :description="project.description" :title="project.title" :key="index"/>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="row">
     <NewsItem v-for="(item, index) in news" :content="item.content" :link="item.link" :title="item.title" :key="index"/>
   </div>
 </template>
