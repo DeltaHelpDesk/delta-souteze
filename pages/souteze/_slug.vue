@@ -4,41 +4,35 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-title">News</h2>
+            <h2 class="section-title">Novinky</h2>
           </div>
         </div>
-      <!-- <news :prefix="$route.params.slug"></news>-->
+        <news :prefix="$route.params.slug"></news>
       </div>
     </section>
-
-    <!-- Projects -->
     <section class="section-two">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Projekty</h2>
           </div>
         </div>
-     <!--  <projects :prefix="$route.params.slug"></projects>-->
+        <projects :prefix="$route.params.slug"></projects>
       </div>
     </section>
   </div>
 </template>
-
 <script>
-  import News from "../../components/news/News";
-  import Projects from "../../components/projects/Projects";
+import News from '../../components/news/News';
+import Projects from '../../components/projects/Projects';
 
-  export default {
-    name: "_slug",
-    components: {Projects, News},
-   /* asyncData({store})
-    {
-      store.dispatch('news/fetchData');
-    }*/
-  }
+export default {
+  components: { Projects, News },
+  async fetch({ store, params }) {
+    await store.dispatch('projects/fetchData', { competition: params.slug });
+    await store.dispatch('news/fetchData', { competition: params.slug });
+  },
+};
 </script>
-
 <style scoped>
-
 </style>

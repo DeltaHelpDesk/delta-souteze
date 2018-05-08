@@ -1,64 +1,34 @@
 <template>
   <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        delta-souteze
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Novinky a projekty</h2>
+      </div>
+      <div class="row">
+        <div class="col left-content">
+          <news v-for="(prefix, index) in $store.getters['news/getPrefixes']" :prefix="prefix" :limit="2" :key="index" />
+        </div>
+      </div>
+      <div class="col">        
+        <projects v-for="(prefix, index) in $store.getters['projects/getPrefixes']" :prefix="prefix" :limit="2" :key="index" />
       </div>
     </div>
   </section>
 </template>
-
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import DATASOURCES from '~/plugins/data-sources';
+import News from '../components/news/News';
+import Projects from '../components/projects/Projects';
 
 export default {
-  components: {
-    AppLogo
-  }
-}
+  components: { Projects, News },
+  async fetch({ store }) {
+    let promises = [];
+    Object.keys(DATASOURCES).forEach(competition => promises.push(store.dispatch('news/fetchData', { competition })));
+    Object.keys(DATASOURCES).forEach(competition => promises.push(store.dispatch('projects/fetchData', { competition })));
+    await Promise.all(promises)
+  },
+};
 </script>
-
 <style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

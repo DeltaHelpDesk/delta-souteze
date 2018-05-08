@@ -1,6 +1,7 @@
 <template>
   <div class="news col-md-4">
     <a :href="link"><h3>{{title}}</h3></a>
+    <nuxt-link :to="`/souteze/${prefix}`"><span class="small">{{ prefix }}</span></nuxt-link>
     <p>{{content}}</p>
   </div>
 </template>
@@ -17,6 +18,10 @@
         required: true,
       },
       link: {
+        type: String,
+        required: true
+      },
+      prefix: {
         type: String,
         required: true
       }

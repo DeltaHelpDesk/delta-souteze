@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <Project v-for="(project, index) in projects" :authors="project.authors" :description="project.description" :title="project.title" :key="index"/>
+    <Project v-for="(project, index) in projects" :authors="project.authors" :description="project.description" :title="project.title" :prefix="prefix" :key="index"/>
   </div>
 </template>
 <script>
@@ -16,7 +16,9 @@ export default {
   },
   computed: {
     projects() {
-      return this.$store.getters['projects/getDataByPrefix'](this.prefix);
+      let data = this.$store.getters['projects/getDataByPrefix'](this.prefix);
+      if (data === undefined) return [];
+      else return this.limit === null ? data : data.slice(0, this.limit);
     },
   },
 };
