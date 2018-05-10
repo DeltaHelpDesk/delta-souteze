@@ -11,17 +11,23 @@ export default {
   props: {
     prefix: {
       type: String,
-      required: true,
+      required: true
     },
+    limit: {
+      type: Number,
+      required: false,
+      default: null,
+    }
   },
   computed: {
     projects() {
       let data = this.$store.getters['projects/getDataByPrefix'](this.prefix);
       if (data === undefined) return [];
       else return this.limit === null ? data : data.slice(0, this.limit);
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
+
 </style>
