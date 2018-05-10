@@ -1,0 +1,39 @@
+section{
+padding:100px !important;
+}
+
+.border-bottom{
+    padding-bottom: 5px;
+}
+
+.left-content{
+border-right:1px solid #dee2e6;
+}
+.section-title{
+text-align:center;
+padding-bottom:50px;
+}
+.section-two{
+background:rgba(128,128,128,0.3);
+}
+.authors{
+list-style-type:none;
+padding-left:0;
+}
+.small{
+font-size:10px;
+color:gray;
+}
+.news_section{
+    background-color: #262626;
+    color: white;
+}
+
+
+
+
+
+
+
+
+

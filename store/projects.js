@@ -1,4 +1,5 @@
 import axios from 'axios/index';
+import DATASOURCES from '~/plugins/data-sources';
 
 export const state = () => ({
   data: {},
@@ -11,10 +12,11 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetchData({ commit }, { url, prefix }) {
+  async fetchData({ commit }, { competition }) {
     try {
-      const { data } = await axios.get(`${url}/projects`);
-      commit('SET_DATA', { data, prefix });
+      console.log(`Fetching data from ${DATASOURCES[competition]}/projects`);
+      const { data } = await axios.get(`${DATASOURCES[competition]}/projects`);
+      commit('SET_DATA', { data, prefix: competition });
     } catch (e) {
       console.log(e);
     }
@@ -25,4 +27,7 @@ export const getters = {
   getDataByPrefix: (state) => (prefix) => {
     return state.data[prefix];
   },
+  getPrefixes: (state) => {
+    return Object.keys(state.data);
+  }
 };
