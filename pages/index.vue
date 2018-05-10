@@ -6,11 +6,11 @@
       </div>
       <div class="row">
         <div class="col left-content">
-          <news v-for="(prefix, index) in $store.getters['news/getPrefixes']" :prefix="prefix" :limit="2" :key="index" />
+          <news v-for="(prefix, index) in $store.getters['news/getPrefixes']" :prefix="prefix" :limit="1" :key="index" />
         </div>
       </div>
       <div class="col">        
-        <projects v-for="(prefix, index) in $store.getters['projects/getPrefixes']" :prefix="prefix" :limit="2" :key="index" />
+        <projects v-for="(prefix, index) in $store.getters['projects/getPrefixes']" :prefix="prefix" :limit="1" :key="index" />
       </div>
     </div>
   </section>
