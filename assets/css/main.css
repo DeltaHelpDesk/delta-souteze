@@ -1,11 +1,16 @@
 section{
 padding:100px !important;
 }
-
+.news-section .section-title {
+text-align: left;
+}
 .border-bottom{
     padding-bottom: 5px;
 }
-
+.news-div
+{
+    margin-bottom:80px;
+}
 .left-content{
 border-right:1px solid #dee2e6;
 }

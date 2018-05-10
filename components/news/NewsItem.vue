@@ -1,8 +1,8 @@
 <template>
-  <div class="news col-md-4">
+  <div class="news col-lg-12">
     <a :href="link"><h3>{{title}}</h3></a>
     <nuxt-link :to="`/souteze/${prefix}`"><span class="small">{{ prefix }}</span></nuxt-link>
-    <p>{{content}}</p>
+    <p>{{content|truncate(150)}}</p>
   </div>
 </template>
 <script>
