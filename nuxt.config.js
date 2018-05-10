@@ -64,5 +64,5 @@ module.exports = {
     },
     vendor: ['axios', 'vue-uuid', '~/plugins/data-sources'],
   },
-  plugins: ['~/plugins/vue-uuid'],
+  plugins: ['~/plugins/vue-uuid', '~/plugins/vue2-filters'],
 };

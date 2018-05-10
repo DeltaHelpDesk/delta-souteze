@@ -1,5 +1,5 @@
 <template>
-  <div class="projects col-md-4">
+  <div class="projects col-lg-6">
     <h3>{{title}}</h3>
     <nuxt-link :to="`/souteze/${prefix}`"><span class="small">{{ prefix }}</span></nuxt-link>
     <ul class="authors">
