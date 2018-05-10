@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="border-bottom">
+    <section class="border-bottom container news-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -10,7 +10,7 @@
         <news :prefix="$route.params.slug"></news>
       </div>
     </section>
-    <section class="section-two">
+    <section class="section-two container news-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
