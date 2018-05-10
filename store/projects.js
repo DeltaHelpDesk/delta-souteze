@@ -1,5 +1,6 @@
 import axios from 'axios/index';
 import DATASOURCES from '~/plugins/data-sources';
+import get from '~/plugins/memoized-get';
 
 export const state = () => ({
   data: {},
@@ -15,7 +16,7 @@ export const actions = {
   async fetchData({ commit }, { competition }) {
     try {
       console.log(`Fetching data from ${DATASOURCES[competition]}/projects`);
-      const { data } = await axios.get(`${DATASOURCES[competition]}/projects`);
+      const { data } = await get(`${DATASOURCES[competition]}/projects`);
       commit('SET_DATA', { data, prefix: competition });
     } catch (e) {
       console.log(e);
