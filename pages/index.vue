@@ -1,18 +1,17 @@
 <template>
-  <section class="container">
+  <section class="container news-section">
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-title">Novinky a projekty</h2>
       </div>
-      <div class="row">
-        <div class="col left-content">
+        <div class="col-lg-12">
           <news v-for="(prefix, index) in $store.getters['news/getPrefixes']" :prefix="prefix" :limit="1" :key="index" />
         </div>
-      </div>
-      <div class="col">        
+      
+      <div class="col-lg-12">        
         <projects v-for="(prefix, index) in $store.getters['projects/getPrefixes']" :prefix="prefix" :limit="1" :key="index" />
       </div>
-    </div>
+      </div>
   </section>
 </template>
 <script>

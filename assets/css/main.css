@@ -1,7 +1,9 @@
 section{
 padding:100px !important;
 }
-
+.news-section .section-title {
+text-align: left;
+}
 .border-bottom{
     padding-bottom: 5px;
 }
