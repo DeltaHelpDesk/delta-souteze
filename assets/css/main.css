@@ -1,4 +1,4 @@
-section{
+section.container{
 padding:100px;
 }
 .news-section .section-title {
@@ -12,7 +12,7 @@ text-align: left;
     margin-bottom:80px;
 }
 @media screen and (max-width: 800px) {
-    section{
+    section.container{
       padding: 30px;;
     }
 }
