@@ -1,5 +1,5 @@
 section{
-padding:100px !important;
+padding:100px;
 }
 .news-section .section-title {
 text-align: left;
@@ -10,6 +10,11 @@ text-align: left;
 .news-div
 {
     margin-bottom:80px;
+}
+@media screen and (max-width: 800px) {
+    section{
+      padding: 30px;;
+    }
 }
 .left-content{
 border-right:1px solid #dee2e6;
